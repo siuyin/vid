@@ -1,6 +1,6 @@
 module github.com/siuyin/vid
 
-go 1.22.1
+go 1.22
 
 require (
 	github.com/blackjack/webcam v0.5.0

@@ -1,3 +1,5 @@
+// Package vid provides a simple wrapper around
+// github.com/blackjack/webcam library.
 package vid
 
 import (
@@ -17,6 +19,7 @@ const (
 	V4L2_PIX_FMT_YUYV = webcam.PixelFormat(0x56595559)
 )
 
+// Capture uses /dev/video0 to capture a still timestamped image.
 func Capture() error {
 	cam, err := webcam.Open(dflt.EnvString("VIDEO_DEVICE", "/dev/video0"))
 	if err != nil {
