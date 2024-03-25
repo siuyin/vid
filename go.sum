@@ -1,0 +1,6 @@
+github.com/blackjack/webcam v0.5.0 h1:NImYpsAbWxglejopcQGQ3FClxhJZaBBgr5fV7nsGdvk=
+github.com/blackjack/webcam v0.5.0/go.mod h1:zs+RkUZzqpFPHPiwBZ6U5B34ZXXe9i+SiHLKnnukJuI=
+github.com/siuyin/dflt v0.0.0-20230329062002-0475f4d54412 h1:wa75y3NwGEDSzxJ0dPdIadS0hCA4Jbq0m1RZoksrHR8=
+github.com/siuyin/dflt v0.0.0-20230329062002-0475f4d54412/go.mod h1:+WsKak36sIJb+W3/mAlKWpfpWdo2y7tv3/zxu6YE9O4=
+golang.org/x/sys v0.14.0 h1:Vz7Qs629MkJkGyHxUlRHizWJRG2j8fbQKjELVSNhy7Q=
+golang.org/x/sys v0.14.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
