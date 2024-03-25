@@ -8,7 +8,6 @@ import (
 	"os"
 	"os/exec"
 	"strings"
-	"time"
 
 	"github.com/blackjack/webcam"
 	"github.com/siuyin/dflt"
@@ -20,15 +19,14 @@ const (
 )
 
 // Capture uses /dev/video0 to capture a still timestamped image.
-func Capture() error {
+func Capture(output string) error {
+	//eg. output := "img-loc123-" + time.Now().Format("20060304-150405")
 	cam, err := webcam.Open(dflt.EnvString("VIDEO_DEVICE", "/dev/video0"))
 	if err != nil {
 		return fmt.Errorf("webcam.Open: %v", err)
 	}
 	defer cam.Close()
 
-	//output := dflt.EnvString("IMAGE_FILE", "myImage")
-	output := "img-loc123-" + time.Now().Format("20060304-150405")
 	if err := writeYUV(cam, output); err != nil {
 		return err
 	}

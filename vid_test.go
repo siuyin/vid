@@ -1,9 +1,13 @@
 package vid
 
-import "testing"
+import (
+	"testing"
+	"time"
+)
 
 func TestCapture(t *testing.T) {
-	if err := Capture(); err != nil {
+	output := "img-loc123-" + time.Now().Format("20060304-150405")
+	if err := Capture(output); err != nil {
 		t.Error(err)
 	}
 }
