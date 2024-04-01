@@ -21,5 +21,5 @@ func main() {
 
 func run(n int) {
 	fmt.Printf("Run %d: %s\n", n, time.Now().Format("15:04:05.000"))
-	vid.Capture(fmt.Sprintf("img-loc123-%s",time.Now().Format("20060102-150405SGT")))
+	vid.Capture(fmt.Sprintf("img-loc123-%s", time.Now().Format("20060102-150405SGT")))
 }
