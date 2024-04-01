@@ -60,6 +60,11 @@ func writeYUV(cam *webcam.Webcam, basename string, frames int) error {
 	}
 	defer of.Close()
 
+	const numberOfWarmUpFrames = 3
+	if err := warmUp(cam, numberOfWarmUpFrames); err != nil {
+		return fmt.Errorf("warmUp: %v", err)
+	}
+
 	for n := 0; n < frames; n++ {
 		if err := cam.WaitForFrame(5); err != nil {
 			return fmt.Errorf("WaitForFrame: %v", err)
@@ -77,6 +82,20 @@ func writeYUV(cam *webcam.Webcam, basename string, frames int) error {
 		of.Write(frame)
 	}
 
+	return nil
+}
+
+func warmUp(cam *webcam.Webcam, n int) error {
+	for i := 0; i < n; i++ {
+		if err := cam.WaitForFrame(5); err != nil {
+			return fmt.Errorf("WaitForFrame: %v", err)
+		}
+
+		_, err := cam.ReadFrame()
+		if err != nil {
+			return fmt.Errorf("ReadFrame: %v", err)
+		}
+	}
 	return nil
 }
 
