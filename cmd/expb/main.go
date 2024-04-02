@@ -9,13 +9,14 @@ import (
 )
 
 func main() {
-	ts := expb.Intervals(time.Duration(1000000000), 4)
+	ts := expb.Intervals(time.Duration(2000000000), 3)
+	t := time.NewTimer(0)
+	<-t.C
 	run(0)
-	t := time.NewTimer(ts[0])
-	for i := 1; i < len(ts); i++ {
-		<-t.C
+	for i := 0; i < len(ts); i++ {
 		t.Reset(ts[i])
-		run(i)
+		<-t.C
+		run(i+1)
 	}
 }
 
